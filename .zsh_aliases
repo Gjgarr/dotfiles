@@ -1,0 +1,7 @@
+# config files
+alias vimconfig="vim ~/.vim/vimrc"
+alias zshconfig="vim ~/.zshrc"
+alias tmuxconfig="vim ~/.tmux.conf"
+
+# general commands
+alias ls="ls --color=auto --group-directories-first"
