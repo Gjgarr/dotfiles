@@ -4,4 +4,5 @@ alias zshconfig="vim ~/.zshrc"
 alias tmuxconfig="vim ~/.tmux.conf"
 
 # general commands
+alias tree="tree --dirsfirst"
 alias ls="ls --color=auto --group-directories-first"
