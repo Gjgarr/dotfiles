@@ -10,7 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'matze/vim-move'
 Plugin 'kshenoy/vim-signature'
