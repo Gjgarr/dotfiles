@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo apt-get update      || exit
-sudo apt-get upgrade     || exit
+sudo aptitude update     || exit
+sudo aptitude upgrade    || exit
 
 sh $ZSH/tools/upgrade.sh || exit
 
