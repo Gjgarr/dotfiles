@@ -1,8 +1,38 @@
 #!/bin/bash
+set -e
 
-sudo apt-get update      || exit
-sudo apt-get upgrade     || exit
+sudo aptitude update
+sudo aptitude upgrade
 
-sh $ZSH/tools/upgrade.sh || exit
+echo ""
+sh $ZSH/tools/upgrade.sh
 
+echo ""
+echo "Upgrading vim plugins"
 vim ~/.vim/vimrc -c "PluginUpdate"
+echo ""
+
+LATEST_RELEASE=`curl -s -L https://github.com/atom/atom/releases/latest | fgrep " atom/atom " | perl -ne 'print $1 if /Release (\d\S+)/'`
+INSTALLED_VER=`atom --version | perl -ne 'print $1 if /Atom\s*: (.+)$/'`
+
+if [ "$LATEST_RELEASE" == "$INSTALLED_VER" ]; then
+	echo "Atom up-to-date. [v$INSTALLED_VER]"
+else
+	echo "Atom needs updating. [v$INSTALLED_VER] -> [v$LATEST_RELEASE]"
+
+	if [ -e $ATOM_ABS ]; then
+		echo "Atom file already exists, installing assumed new version"
+	else
+		echo "Atom file not in $ATOM_DEB_LOC, downloading new version"
+		wget -q https://atom.io/download/deb -O $ATOM_ABS
+	fi
+
+	sudo dpkg -i $ATOM_ABS
+
+	SUFFIX=_installed`date +%Y%m%d`
+	echo "Renaming deb file to $ATOM_ABS$SUFFIX"
+	mv $ATOM_ABS $ATOM_ABS$SUFFIX
+fi
+echo ""
+
+apm update
