@@ -10,7 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'matze/vim-move'
 Plugin 'kshenoy/vim-signature'
@@ -42,6 +42,8 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set hlsearch
 set incsearch
+set list
+set listchars=tab:▸\ ,eol:¬
 
 au FileType python set ts=4 sts=4 sw=4 expandtab ai ff=unix
 au FileType php    set ts=2 sts=2 sw=2 expandtab ai ff=unix
