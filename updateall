@@ -14,13 +14,15 @@ echo ""
 
 LATEST_RELEASE=`curl -s -L https://github.com/atom/atom/releases/latest | fgrep " atom/atom " | perl -ne 'print $1 if /Release (\d\S+)/'`
 INSTALLED_VER=`atom --version | perl -ne 'print $1 if /Atom\s*: (.+)$/'`
+ATOM_DEB_LOC="$HOME/Downloads"
+ATOM_ABS="$ATOM_DEB_LOC/atom.deb"
 
 if [ "$LATEST_RELEASE" == "$INSTALLED_VER" ]; then
 	echo "Atom up-to-date. [v$INSTALLED_VER]"
 else
 	echo "Atom needs updating. [v$INSTALLED_VER] -> [v$LATEST_RELEASE]"
 
-	if [ -e $ATOM_ABS ]; then
+	if [ -e "$ATOM_ABS" ]; then
 		echo "Atom file already exists, installing assumed new version"
 	else
 		echo "Atom file not in $ATOM_DEB_LOC, downloading new version"
