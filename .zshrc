@@ -13,8 +13,11 @@ export PATH="/usr/local/bin:/usr/bin:/usr/local/games:/usr/games:$PATH"
 export PATH="$HOME/.bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 export TERM="xterm-256color"
+export DEFAULT_USER=`whoami`
 
 # Custom aliases
 if [ -f $HOME/.zsh_aliases ]; then
 	source $HOME/.zsh_aliases
 fi
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
