@@ -13,7 +13,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'nanotech/jellybeans.vim'
+Plugin 'editorconfig/editorconfig-vim'
+
 Plugin 'morhetz/gruvbox'
 
 call vundle#end()
@@ -39,6 +40,7 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 au FileType python set ts=4 sts=4 sw=4 expandtab ai ff=unix
+au FileType perl   set ts=4 sts=4 sw=4 expandtab ai ff=unix
 let g:syntastic_enable_perl_checker = 1
 
 set smarttab
@@ -48,7 +50,6 @@ set t_Co=256
 syntax on
 set background=dark
 colorscheme gruvbox
-"colorscheme jellybeans
 
 set noswapfile
 set nu
@@ -76,11 +77,6 @@ let g:syntastic_check_on_wq   = 0
 
 " vim-better-whitespace config
 highlight ExtraWhitespace ctermbg = DarkGray
-
-" jellybeans config
-"let g:jellybeans_overrides = {
-"\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-"\}
 
 
 if filereadable("/etc/vim/vimrc.local")
